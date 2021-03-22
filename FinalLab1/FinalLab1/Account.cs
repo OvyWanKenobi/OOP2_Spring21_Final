@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace FinalLab1
 {
-        abstract class Account
+        public class Account
         {
             public string AccID { get; set; }
             public string AccName { get; set; }
             public double Balance { get; set; }
 
-            public Account() { }
-            public Account(string accId, string accName, double accBalance)
+       Transaction[] transactions = new Transaction[20];
+        public int transactionCount { get; set; }
+
+        public Account() { }
+            public Account( string accName, string accId, double accBalance)
             {
                 AccID = accId;
                 AccName = accName;
@@ -23,7 +26,8 @@ namespace FinalLab1
             public void Deposit(double amount)
             {
                 Balance += amount;
-                Console.WriteLine("your account is deposited by {0}. Current balance: {1}", amount, Balance);
+                Console.WriteLine("{0} 's account is deposited by {1}. Current balance: {2}", this.AccName, amount, Balance);
+                 transactions[transactionCount++] = new Transaction(this, this, amount, "Self deposited");
             }
 
             public  void Withdraw(double amount)
@@ -31,7 +35,8 @@ namespace FinalLab1
             if (amount < Balance)
             {
                 Balance -= amount;
-                Console.WriteLine("Your account debited by {0}", amount);
+                Console.WriteLine("{0} 's account is withdrawn by {1}. Current balance: {2}", this.AccName, amount, Balance);
+                transactions[transactionCount++] = new Transaction(this, this, amount, "Self withdrawn");
             }
             else
             {
@@ -45,7 +50,9 @@ namespace FinalLab1
             {
                 Balance -= amount;
                 acc.Balance += amount;
-                Console.WriteLine("your account transfer by amount {0} to the account {1}({2})", amount, acc.AccName, acc.AccNo);
+                Console.WriteLine("{1}'s account transferred amount {0} to the {2}'s account. Current balance : {3} ", amount, this.AccName, acc.AccName, Balance);
+                transactions[transactionCount++] = new Transaction(this, acc, amount, "Transfered");
+           
             }
             else
             {
@@ -53,10 +60,29 @@ namespace FinalLab1
             }
         }
 
+
         public void ShowInfo()
             {
-                
-            }
-
+            Console.WriteLine(" Account Name: " + AccName);
+            Console.WriteLine(" Account ID: " + AccID);
+            Console.WriteLine(" Current Balance: " + Balance);
+            Console.WriteLine();
         }
+
+       
+
+        public void showAllTransaction()
+        {
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("<< Transaction history of {0} >>", this.AccName);
+
+            for (int i = 0; i < transactionCount; i++)
+            {
+                transactions[i].showTransactions();
+            }
+        }
+
+    }
     }

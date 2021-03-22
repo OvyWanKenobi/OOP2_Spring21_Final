@@ -8,34 +8,30 @@ namespace FinalLab1
 {
     class Transaction
     {
-        public Account Sender {
-            get { return sender; }
-            set { sender = value; }
-        }
+        private Account sender;
+        private Account receiver;
+        public double Amount { get; set; }
+        public string AdditionalInfo { get; set; }
 
-        public Account Receiver
-        {
-            get { return receiver; }
-            set { receiver = value; }
-        }
-  
-        public int Amount
-        {
-            get { return amount; }
-            set { amount = value; }
-        }
-
-        public string AdditionalInfo
-        {
-            get { return additionalInfo; }
-            set { additionalInfo = value; }
-        }
 
 
         public Transaction() { }
-        public Transaction(Account sender, Account receiver, int amount, string additionalInfo)
+        public Transaction(Account sender, Account receiver, double amount, string additionalInfo)
+        {
+            this.sender = sender;
+            this.receiver = receiver;
+            AdditionalInfo = additionalInfo;
+            Amount = amount;
+        }
+
+        public void showTransactions()
         {
            
+                Console.WriteLine("Sender: " + sender.AccName);
+                Console.WriteLine("Receiver: " + receiver.AccName);
+                Console.WriteLine("Amount: " + Amount);
+                Console.WriteLine("Additional Info: " + AdditionalInfo);
+            Console.WriteLine(); 
         }
 
     }

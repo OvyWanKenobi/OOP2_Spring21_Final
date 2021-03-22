@@ -1,0 +1,7 @@
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\obj\Debug\FinalLab1.csprojAssemblyReference.cache
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\obj\Debug\FinalLab1.csproj.CoreCompileInputs.cache
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\bin\Debug\Labtask1.exe.config
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\bin\Debug\Labtask1.exe
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\bin\Debug\Labtask1.pdb
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\obj\Debug\Labtask1.exe
+D:\aiub\oop2\OOP2_Spring21_Final\FinalLab1\FinalLab1\obj\Debug\Labtask1.pdb
